@@ -1,9 +1,10 @@
 apiKey = "";
-apiURL = "" + apiKey;
+apiURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey;
 
 fetch(apiURL)
     .then(function(response){
-        return response.json();
+        console.log(response.json());
+        // return response.json();
     })
     .then(function(data){
 
