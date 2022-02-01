@@ -1,4 +1,4 @@
-spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+spoonacularKey = "";
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
 
 
