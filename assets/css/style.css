@@ -32,6 +32,13 @@ nav {
     font-family: 'Noto Serif JP', serif;
 }
 
+li a{
+    color: floralwhite;
+}
+
+li a:hover{
+    color: #952F19;
+}
 .jumbotron {
     font-family: 'Noto Serif JP', serif;
 }
@@ -51,3 +58,4 @@ nav {
 #search-bar {
     background-color: rgb(253, 235, 231);
 }
+/*-------------Tae's Css update section-----------------*/
