@@ -9,19 +9,7 @@ generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&a
 searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
 
 //jQuery Autocomplete
-$( function() {
-    var foodChoices = [
-      "Chicken",
-      "Beef",
-      "Pork",
-      "Fish",
-      "Vegetables",
-      "Bacon",
-    ];
-    $( "#tags" ).autocomplete({
-      source: foodChoices
-    });
-  } );
+
 //
 
 var searchButton = document.getElementById('search-button');
@@ -46,7 +34,10 @@ function randomRecipe() {
                 $("#ingredients").append("<li>" + ingredientList[i].name + "</li>")
             }
 
+<<<<<<< HEAD
             //make li elements for the steps
+=======
+>>>>>>> 33abb4343f56455fd039176318b7756fa953eb0d
             for(let j = 0; j < instructions.length; j++){
                 var currentStep = j + 1;
                 var instructionsString = instructions[j].step;
