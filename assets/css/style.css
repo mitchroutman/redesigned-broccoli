@@ -19,12 +19,14 @@
     padding: 0;
     margin: 0;
 }
-/* gave a shape to the body pf the page*/
+
 body {
     position: relative;
     margin: 0%;
     padding: 0%;
 }
+
+/*NAV BAR STUFF*/
 
 nav {
     background-color: black;
@@ -39,6 +41,9 @@ li a{
 li a:hover{
     color: #952F19;
 }
+
+/*NAV BAR STUFF*/
+/*JUMBO STUFF*/
 .jumbotron {
     font-family: 'Noto Serif JP', serif;
 }
@@ -53,6 +58,15 @@ li a:hover{
 .jumbotron img {
     position: relative;
     text-align: center;
+}
+/*JUMBO STUFF*/
+
+/*CARD STUFF*/
+.card-link {
+    color: #000000;
+    font-family: 'Noto Serif JP', serif;
+    float: left;
+    margin-left: -15px;
 }
 /*-------------Tae's Css update section-----------------*/
 
