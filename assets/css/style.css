@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #recipyResult {
     display: flex;
     flex-direction: column;
@@ -13,7 +12,7 @@
     display: flex;
     flex-direction: row;
 }
-=======
+
 /*-------------Tae's Css update section-----------------*/
 * {
     box-sizing: border-box;
@@ -49,5 +48,4 @@ nav {
     text-align: center;
 }
 
-/*-------------Tae's Css update section-----------------*/
->>>>>>> dbc40991c33434f142907fdd2a46c80d9d398c92
+
