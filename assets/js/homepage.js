@@ -1,9 +1,30 @@
 //afe8f8ce140548eaaabaa3febe07b051
 
+<<<<<<< HEAD
 spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+=======
+spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
+>>>>>>> 458bb344d6bb36312658be2226edc49d6364d7e2
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
+searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
 
+//jQuery Autocomplete
+$( function() {
+    var foodChoices = [
+      "Chicken",
+      "Beef",
+      "Pork",
+      "Fish",
+      "Vegetables",
+      "Bacon",
+    ];
+    $( "#tags" ).autocomplete({
+      source: foodChoices
+    });
+  } );
+//
 
+var searchButton = document.getElementById('search-button');
 
 function randomRecipe() {
     fetch(generateRandomRecipeURL)
@@ -35,6 +56,7 @@ function randomRecipe() {
         })
 }
 
+<<<<<<< HEAD
 function removeCurrentRecipe(){
     $("#ingredients").remove();
     $("#steps").remove();
@@ -45,4 +67,23 @@ $("#generateRandomRecipe").click(function(event){
     randomRecipe();
 })
 
+=======
+
+function renderByIngredient() {
+    console.log("Clicked Search")
+    fetch(generateRandomRecipeURL)
+    .then(function (response) {
+        //console.log(response)
+        return response.json();
+    })
+    .then(function (data) {
+        var dishName = data.recipes[0].title;
+        var ingredientList = data.recipe[0].extendedIngredients;
+        var instructions = data.recipe[0].analyzedInstructions[0].steps;
+    })
+}
+
+searchButton.addEventListener('click', renderByIngredient);
+renderRecipe();
+>>>>>>> 458bb344d6bb36312658be2226edc49d6364d7e2
 // searchIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&numbers=5&apiKey=" + spoonacularKey
