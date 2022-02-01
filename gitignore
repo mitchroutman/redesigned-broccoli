@@ -1,0 +1,2 @@
+#Iniated gitignore to resolve merge issues with DS_Store files. Instructor approval given. 
+.DS_Store
