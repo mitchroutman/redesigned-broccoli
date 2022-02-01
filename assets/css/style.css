@@ -1,0 +1,14 @@
+#recipyResult {
+    display: flex;
+    flex-direction: column;
+}
+#nav {
+    justify-content: flex-end;
+
+}
+
+#ingAndImg {
+
+    display: flex;
+    flex-direction: row;
+}
