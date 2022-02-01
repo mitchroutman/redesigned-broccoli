@@ -1,3 +1,5 @@
+//afe8f8ce140548eaaabaa3febe07b051
+
 spoonacularKey = "";
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
 
