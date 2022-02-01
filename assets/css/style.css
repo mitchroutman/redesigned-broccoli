@@ -1,3 +1,18 @@
+#recipyResult {
+    display: flex;
+    flex-direction: column;
+}
+#nav {
+    justify-content: flex-end;
+
+}
+
+#ingAndImg {
+
+    display: flex;
+    flex-direction: row;
+}
+
 /*-------------Tae's Css update section-----------------*/
 * {
     box-sizing: border-box;
@@ -31,4 +46,8 @@ nav {
 .jumbotron img {
     position: relative;
     text-align: center;
+}
+
+#search-bar {
+    background-color: rgb(253, 235, 231);
 }
