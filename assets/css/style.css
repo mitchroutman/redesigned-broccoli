@@ -32,13 +32,20 @@ nav {
     font-family: 'Noto Serif JP', serif;
 }
 
+li a{
+    color: floralwhite;
+}
+
+li a:hover{
+    color: #952F19;
+}
 .jumbotron {
     font-family: 'Noto Serif JP', serif;
 }
 
 .jumbotron img {
     width: 100%;
-    height: 300px;
+    height: auto;
     margin-bottom: -5%;
     margin-top: -5%;
 }
@@ -47,6 +54,7 @@ nav {
     position: relative;
     text-align: center;
 }
+/*-------------Tae's Css update section-----------------*/
 
 #search-bar {
     background-color: rgb(253, 235, 231);
