@@ -19,16 +19,7 @@
     <nav>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link">Cart</a>
             </li>
             <input type="text" class="nav-item" id="search-bar" placeholder="Anything">
             <button type="button" class="btn btn-primary">Search</button>
@@ -48,10 +39,10 @@
         <section class="container">
             <ol class="row">
                 <li class="col">
-                    <article class="card" style="width: 18rem;">
+                    <article id="generateRandomRecipe" class="card" style="width: 18rem;">
                         <img src="assets/images/food.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5><a href="#" class="card-link">Generate Random Recipe</a></h5>
+                            <h5><p class="card-link">Generate Random Recipe</p></h5>
                         </div>
                     </article>
                 </li>
@@ -65,12 +56,12 @@
                 </li>
             </div>
         </section>
-        <section>
+        <section id="currentDish">
             <ul id="ingredients">
                 <h2 id="nameOfCurrentDish"></h2>
             </ul>
             <ol id="steps">
-                <h2>Steps</h2>
+                <h2 id="stepsHeader"></h2>
             </ol>
         </section>
     </main>
