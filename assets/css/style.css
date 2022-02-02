@@ -75,6 +75,10 @@ li a:hover{
     margin-left: 7%;
     margin-right: 4%;
 }
+
+.col img {
+    cursor: pointer;
+}
 /*-------------Tae's Css update section-----------------*/
 
 #search-bar {
