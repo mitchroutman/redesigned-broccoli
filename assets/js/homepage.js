@@ -24,7 +24,7 @@ function randomRecipe() {
             var image = data.recipes[0].image
 
             //changes header of dish name and steps
-            $("#currentDish").append("<h2>" + dishName + "</h2><img src=\"" + image +"\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+            $("#currentDish").append("<h2>" + dishName + "</h2 id=\"dishName\"><img id=\"dishImage\" src=\"" + image +"\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
             $("#ingredients").append("<h3>Ingredients</h3>");
             $("#steps").append("<h3>Steps</h3>");
 
@@ -44,6 +44,8 @@ function randomRecipe() {
 }
 
 function removeCurrentRecipe(){
+    $("#dishName").remove();
+    $("#dishImage").remove();
     $("#ingredients").remove();
     $("#steps").remove();
 }
