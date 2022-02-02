@@ -82,7 +82,6 @@ $("#generateRandomRecipe").click(function (event) {
     randomRecipe();
 })
 
-<<<<<<< HEAD
 
 // searchIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&numbers=5&apiKey=" + spoonacularKey
 
@@ -145,5 +144,3 @@ $("#generateRandomRecipe").click(function (event) {
 //     removeCurrentDrink();
 //     randomDrink();
 // })
-=======
->>>>>>> d8c3960dd79c89965bd4c6570601718eacbc336f
