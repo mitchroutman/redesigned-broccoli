@@ -2,7 +2,7 @@
 //0d6b19fe0c2b4f04a50900e6cfded5f0//Yujen
 
 spoonacularKey = "";
-cocktailsKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87";
+cocktailsKey = "";
 
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
 searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
