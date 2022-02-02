@@ -1,6 +1,6 @@
 //afe8f8ce140548eaaabaa3febe07b051
 
-spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
 
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
 searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
