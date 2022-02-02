@@ -32,10 +32,18 @@ nav {
     background-color: black;
     font-size: 20px;
     font-family: 'Noto Serif JP', serif;
+    margin-top: -2.5%;
+}
+
+nav img {
+    width: 12%;
+    margin-bottom: -6%;
+    margin-left: 1%;
 }
 
 li a{
     color: floralwhite;
+    cursor: pointer;
 }
 
 li a:hover{
@@ -72,6 +80,11 @@ li a:hover{
 #currentDish {
     font-family: 'Noto Serif JP', serif; ;
     margin-left: 7%;
+    margin-right: 4%;
+}
+
+.col img {
+    cursor: pointer;
 }
 /*-------------Tae's Css update section-----------------*/
 

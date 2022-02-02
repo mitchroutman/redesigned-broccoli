@@ -19,18 +19,19 @@
 
 <body>
     <nav>
+        <img src="assets/images/RB logo.png" alt="Redesigned Broccoli logo"></img>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="nav-link">Cart</a>
             </li>
-            <input type="text" class="nav-item" id="search-bar" placeholder="Anything">
-            <button type="button" class="btn btn-primary">Search</button>
+            <input type="text" class="nav-item" id="searchBar" placeholder="Anything">
+            <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
         </ul>
 
     </nav>
 
     <header class="jumbotron jumbotron-fluid">
-        <img src="https://via.placeholder.com/700x300.png" alt="table of food and drinks">
+        <img src="./assets/images/pexels-pixabay-54455.jpg" alt="table of different food on plates">
         <!--<div class="container">
             <h1 class="display-4">Fluid jumbotron</h1>
             <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
@@ -59,6 +60,13 @@
                     </article>
                 </li>
                 </div>
+            </div>
+        </section>
+        <section id="currentDish">
+            <h2 id="dishName"></h2>
+            <img id="dishImage" src="">
+            <ul id="ingredients"></ul>
+            <ol id="steps"> </ol>
         </section>
         <div id="recipeContainer">
             <section id="currentDish"></section>
