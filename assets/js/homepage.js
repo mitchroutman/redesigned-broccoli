@@ -1,6 +1,6 @@
 //afe8f8ce140548eaaabaa3febe07b051
-
-spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+//0d6b19fe0c2b4f04a50900e6cfded5f0//Yujen
+spoonacularKey = "0d6b19fe0c2b4f04a50900e6cfded5f0";
 
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
 searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
