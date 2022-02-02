@@ -12,7 +12,9 @@
     <!--Added Google font (Tae)-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@300&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +26,7 @@
             <input type="text" class="nav-item" id="search-bar" placeholder="Anything">
             <button type="button" class="btn btn-primary">Search</button>
         </ul>
-       
+
     </nav>
 
     <header class="jumbotron jumbotron-fluid">
@@ -42,7 +44,9 @@
                     <article id="generateRandomRecipe" class="card" style="width: 18rem;">
                         <img src="assets/images/food.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5><p class="card-link">Generate Random Recipe</p></h5>
+                            <h5>
+                                <p class="card-link">Generate Random Recipe</p>
+                            </h5>
                         </div>
                     </article>
                 </li>
@@ -54,15 +58,18 @@
                         </div>
                     </article>
                 </li>
-            </div>
+                </div>
         </section>
-        <section id="currentDish">
-            <ul id="ingredients"></ul>
-            <ol id="steps"> </ol>
-        </section>
+        <div id="recipeContainer">
+            <section id="currentDish"></section>
+            <section id="ing"></section>
+        </div>
+        <div id="progress">
+        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
     <script src="assets/js/homepage.js"></script>
 </body>
+
 </html>

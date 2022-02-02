@@ -78,3 +78,20 @@ li a:hover{
 #search-bar {
     background-color: rgb(253, 235, 231);
 }
+/* --------- flex box on ing and photo -------YC*/
+#currentDish {
+    display: flex;
+    flex-direction: column;
+
+};
+
+#recipeContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: baseline;
+ 
+}
+#ing {
+    flex-grow: 1;
+}
