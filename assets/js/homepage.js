@@ -1,6 +1,6 @@
 //afe8f8ce140548eaaabaa3febe07b051
 
-spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+spoonacularKey = "";
 
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
 searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
@@ -20,9 +20,10 @@ function randomRecipe() {
             var dishName = data.recipes[0].title;                                                   //name of dish
             var ingredientList = data.recipes[0].extendedIngredients;                               //array ingredients
             var instructions = data.recipes[0].analyzedInstructions[0].steps;                       //array of ingredients
+            var image = data.recipes[0].image
 
             //changes header of dish name and steps
-            $("#currentDish").append("<h2>" + dishName + "</h2><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+            $("#currentDish").append("<h2>" + dishName + "</h2><img src=\"" + image +"\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
             $("#ingredients").append("<h3>Ingredients</h3>");
             $("#steps").append("<h3>Steps</h3>");
 
