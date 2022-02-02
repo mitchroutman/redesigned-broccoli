@@ -4,14 +4,8 @@
 spoonacularKey = "";
 
 generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
-searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
 
 //jQuery Autocomplete
-
-//
-
-var searchButton = document.getElementById('search-button');
-
 function randomRecipe() {
     fetch(generateRandomRecipeURL)
         .then(function (response) {
@@ -21,10 +15,10 @@ function randomRecipe() {
             var dishName = data.recipes[0].title;                                                   //name of dish
             var ingredientList = data.recipes[0].extendedIngredients;                               //array ingredients
             var instructions = data.recipes[0].analyzedInstructions[0].steps;                       //array of ingredients
-            var image = data.recipes[0].image
+            var dishImage = data.recipes[0].image                                                       //url to image of dish
 
             //changes header of dish name and steps
-            $("#currentDish").append("<h2>" + dishName + "</h2 id=\"dishName\"><img id=\"dishImage\" src=\"" + image +"\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+            $("#currentDish").append("<h2>" + dishName + "</h2 id=\"dishName\"><img id=\"dishImage\" src=\"" + dishImage +"\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
             $("#ingredients").append("<h3>Ingredients</h3>");
             $("#steps").append("<h3>Steps</h3>");
 
@@ -50,9 +44,26 @@ function removeCurrentRecipe(){
     $("#steps").remove();
 }
 
+function searchByIngredient(){
+    var userInput = $("#searchBar").val();
+
+    searchByIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + userInput + "&numbers=5&apiKey=" + spoonacularKey;
+
+    fetch(searchByIngredientURL)
+        .then(function(response){
+            return response.json();
+        })
+       .then(function (data){
+           console.log(data)
+        })
+}
+
+$("#searchBtn").click(function(){
+    searchByIngredient();
+})
+
 $("#generateRandomRecipe").click(function(event){
     removeCurrentRecipe();
     randomRecipe();
 })
 
-// searchIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&numbers=5&apiKey=" + spoonacularKey
