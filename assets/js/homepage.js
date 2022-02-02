@@ -1,7 +1,7 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
 
-spoonacularKey = "";
+spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
 
 //jQuery Autocomplete
 function randomRecipe() {
@@ -37,6 +37,7 @@ function randomRecipe() {
         })
 }
 
+//removes current content of recipe
 function removeCurrentRecipe() {
     $("#dishName").remove();
     $("#dishImage").remove();
@@ -47,14 +48,16 @@ function removeCurrentRecipe() {
 function searchByIngredient() {
     var userInput = $("#searchBar").val();
 
-    searchByIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + userInput + "&numbers=5&apiKey=" + spoonacularKey;
+    searchByIngredientURL = "https://api.spoonacular.com/recipes/autocomplete?query=" + userInput + "&numbers=5&apiKey=" + spoonacularKey;
 
     fetch(searchByIngredientURL)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
+            $("searchBar").autocomplete({
+                source: data
+            })
         })
 }
 
