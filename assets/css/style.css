@@ -32,10 +32,18 @@ nav {
     background-color: black;
     font-size: 20px;
     font-family: 'Noto Serif JP', serif;
+    margin-top: -2.5%;
+}
+
+nav img {
+    width: 12%;
+    margin-bottom: -6%;
+    margin-left: 1%;
 }
 
 li a{
     color: floralwhite;
+    cursor: pointer;
 }
 
 li a:hover{
@@ -72,9 +80,31 @@ li a:hover{
 #currentDish {
     font-family: 'Noto Serif JP', serif; ;
     margin-left: 7%;
+    margin-right: 4%;
+}
+
+.col img {
+    cursor: pointer;
 }
 /*-------------Tae's Css update section-----------------*/
 
 #search-bar {
     background-color: rgb(253, 235, 231);
+}
+/* --------- flex box on ing and photo -------YC*/
+#currentDish {
+    display: flex;
+    flex-direction: column;
+
+};
+
+#recipeContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: baseline;
+ 
+}
+#ing {
+    flex-grow: 1;
 }
