@@ -68,6 +68,11 @@ li a:hover{
     float: left;
     margin-left: -15px;
 }
+
+#currentDish {
+    font-family: 'Noto Serif JP', serif; ;
+    margin-left: 7%;
+}
 /*-------------Tae's Css update section-----------------*/
 
 #search-bar {
