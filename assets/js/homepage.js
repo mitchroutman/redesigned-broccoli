@@ -8,6 +8,10 @@ generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&a
 searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
 
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
+
+
+
+
 //jQuery Autocomplete
 
 //
@@ -59,8 +63,7 @@ $("#generateRandomRecipe").click(function(event){
 // searchIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&numbers=5&apiKey=" + spoonacularKey
 
 // Search random Cocktails
-
-//function randomDrink() {
+function randomDrink() {
     fetch("https://cocktails3.p.rapidapi.com/random", {
         "method": "GET",
         "headers": {
@@ -76,25 +79,26 @@ $("#generateRandomRecipe").click(function(event){
         console.log(data.body[0]);
         var drinkName = data.body[0].name;
         var drinkIngredients = data.body[0].ingredients;
+        console.log(data.body[0].ingredients);
         
         //Change drink name and creates sections like ingredients
-        $("#currentDrink").append("<h2>" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
-        //$("#drinkIngredients").append("<h3>Ingredients</h3>");
-        //$("#drinkSteps").append("<h3>Steps</h3>");
+        $("#currentDrink").append("<h3>" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
+        $("#drinkIngredients").append("<h2>Ingredients</h2>");
 
         //li elements for drinks
         for(let i = 0; i < drinkIngredients.length; i++){
-            $("#ingredients").append("<li>" + drinkIngredients[i].ingredientList + "</li>")
+            $("#drinkIngredients").append("<li>" + drinkIngredients[i] + "</li>")
         }
     });
-//};
+};
+
+
 
 // function removeCurrentDrink(){
 //     $("#drinkIngredients").remove();
-//     $("#drinkSteps").remove();
 // }
 
-// $("#generateRandomDrink").click(function(event){
-//     removeCurrentDrink();
-//     randomDrink();
-// })
+$("#generateRandomDrink").click(function(event){
+    randomDrink();
+})
+
