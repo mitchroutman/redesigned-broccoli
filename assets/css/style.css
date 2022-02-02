@@ -92,13 +92,13 @@ li a:hover{
     background-color: rgb(253, 235, 231);
 }
 /* --------- flex box on ing and photo -------YC*/
-#currentDish {
+#picAndName {
     display: flex;
     flex-direction: column;
 
 };
 
-#recipeContainer {
+#ingAndPic {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
