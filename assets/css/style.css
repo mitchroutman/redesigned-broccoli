@@ -36,6 +36,7 @@ nav {
 
 li a{
     color: floralwhite;
+    cursor: pointer;
 }
 
 li a:hover{
@@ -72,6 +73,7 @@ li a:hover{
 #currentDish {
     font-family: 'Noto Serif JP', serif; ;
     margin-left: 7%;
+    margin-right: 4%;
 }
 /*-------------Tae's Css update section-----------------*/
 
