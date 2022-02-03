@@ -102,3 +102,10 @@ li a:hover{
 }
 
 /* autocomplete attributes */
+.ui-menu{
+    background: white;
+}
+
+.ui-helper-hidden-accessible{
+    display: none;
+}
