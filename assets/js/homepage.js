@@ -1,9 +1,7 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
+//74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87
 spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
-cocktailsKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87";
-searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
-
 
 var searchButton = document.getElementById('search-button');
 
@@ -13,9 +11,11 @@ function randomRecipe() {
 
     fetch(generateRandomRecipeURL)
         .then(function (response) {
+            console.log(response)
             return response.json();
         })
         .then(function (info) {
+            console.log(info)
             insertRecipe(info);
         })
 }
@@ -25,10 +25,12 @@ function insertRecipe(data) {
     var dishName = data.recipes[0].title;                                                   //name of dish
     var ingredientList = data.recipes[0].extendedIngredients;                               //array ingredients
     var instructions = data.recipes[0].analyzedInstructions[0].steps;                       //array of ingredients
-    var dishImage = data.recipes[0].image
+    var dishImage = data.recipes[0].image                                                   //URL for image
 
-    //changes header of dish name and steps
-    $("#currentDish").append("<h2>" + dishName + "</h2 id=\"dishName\"><img id=\"dishImage\" src=\"" + dishImage + "\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+    //changes header of dish name ingredients and steps
+    $("#dish-name").text(dishName);
+    $("#dish-image").attr("src", dishImage);
+    $("#current-dish").append("<ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
     $("#ingredients").append("<h3>Ingredients</h3>");
     $("#steps").append("<h3>Steps</h3>");
 
@@ -79,34 +81,39 @@ function randomDrink() {
             "x-rapidapi-key": "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
         }
     })
-        .then(response => {
-            console.log(response);
+        .then(function(response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data.body[0]);
-            var drinkName = data.body[0].name;
-            var drinkIngredients = data.body[0].ingredients;
-            console.log(data.body[0].ingredients);
+            var drinkName = data.body[0].name;                  //drink name
+            var drinkIngredients = data.body[0].ingredients;    //ingredients to drink
 
             //Change drink name and creates sections like ingredients
-            $("#currentDrink").append("<h3>" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
-            $("#drinkIngredients").append("<h2>Ingredients</h2>");
+            $("#drink-name").text(drinkName);
+            $("#currentDrink").append("<ul id=\"drink-ingredients\"></ul>");
+            $("#drink-ingredients").append("<h3>Ingredients</h3>");
 
             //li elements for drinks
             for (let i = 0; i < drinkIngredients.length; i++) {
-                $("#drinkIngredients").append("<li>" + drinkIngredients[i] + "</li>")
+                $("#drink-ingredients").append("<li>" + drinkIngredients[i] + "</li>")
             }
         });
 };
 
 //removes current content of recipe
 function removeCurrentRecipe() {
-    $("#dishName").remove();
-    $("#dishImage").remove();
     $("#ingredients").remove();
     $("#steps").remove();
 }
+
+//remove current drink
+function removeCurrentDrink() {
+    $("#drink-ingredients").remove();
+}
+
+$("#searchBtn").click(function () {
+    searchByIngredient();
+})
 
 $("#generateRandomRecipe").click(function (event) {
     removeCurrentRecipe();
@@ -124,11 +131,13 @@ $("ul").click(function(event){
     searchedRecipe();
 })
 
+$("#generateRandomDrink").click(function(event){
+    removeCurrentDrink();
+    randomDrink();
+
+})
+
 // $("body").click(function(event){
 //     console.log(event.target);
 //     console.log(event.target.innerText);
 // })
-
-$("#generateRandomDrink").click(function (event) {
-    randomDrink();
-})
