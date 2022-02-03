@@ -8,13 +8,14 @@ Redesigned Broccoli is aimed at users 18-34, primarily focused on college studen
 The goal of Redesigned Broccoli is to inspire people to cook more often in their homes, help meal plan and budget, as well as pair cocktails (alcoholic, and non alcoholic) to impress and wow friends and family. 
 
 WIREFRAME
-```md
-    ![Wireframe](assets/images/wireframe.png)
-    ```
+`
+    ![wireframe](assets/images/wireframe.png)
+    
+
 
 LAUNCH PRODUCT
-```md
-    ![Site render](assets/images/render)
+`
+    ![render](assets/images/render.png)
     
 
 
@@ -28,6 +29,7 @@ LAUNCH PRODUCT
 Clone the working directory to a local machine and open the index.html file in your preferred browser. 
 
 ## USAGE
+TBD
 
 ## CREDITS = CONTACTS
 Development done by Jean-Tae Francies, Mitchell Routman, Yujen Chen, Vy Nguyen. 
