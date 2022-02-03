@@ -1,8 +1,9 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
-spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+spoonacularKey = "";
 cocktailsKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
+
 
 var searchButton = document.getElementById('search-button');
 
@@ -37,53 +38,7 @@ function randomRecipe() {
         })
 }
 
-//function randomDrink() {
-    // fetch("https://cocktails3.p.rapidapi.com/random", {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-host": "cocktails3.p.rapidapi.com",
-    //         "x-rapidapi-key": "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
-    //     }
-    // })
-    // .then(response => {
-    //     console.log(response);
-    //     return response.json();
-    // })
-    // .then(function (data) {
-    //     console.log(data.body[0]);
-    //     var drinkName = data.body[0].name;
-    //     var drinkIngredients = data.body[0].ingredients;
-        
-    //     //Change drink name and creates sections like ingredients
-    //     $("#currentDrink").append("<h2>" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
-    //     //$("#drinkIngredients").append("<h3>Ingredients</h3>");
-    //     //$("#drinkSteps").append("<h3>Steps</h3>");
-
-    //     //li elements for drinks
-    //     for(let i = 0; i < drinkIngredients.length; i++){
-    //         $("#ingredients").append("<li>" + drinkIngredients[i].ingredientList + "</li>")
-    //     }
-    // });
-//};
-
-// function removeCurrentDrink(){
-//     $("#drinkIngredients").remove();
-//     $("#drinkSteps").remove();
-// }
-
-// $("#generateRandomDrink").click(function(event){
-//     removeCurrentDrink();
-//     randomDrink();
-// })
-
-//removes current content of recipe
-function removeCurrentRecipe() {
-    $("#dishName").remove();
-    $("#dishImage").remove();
-    $("#ingredients").remove();
-    $("#steps").remove();
-}
-
+//autocomplete function for search bar
 function searchByIngredient() {
     var userInput = $("#searchBar").val();
 
@@ -105,6 +60,45 @@ function searchByIngredient() {
         })
 }
 
+
+// Search random Cocktails
+function randomDrink() {
+    fetch("https://cocktails3.p.rapidapi.com/random", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "cocktails3.p.rapidapi.com",
+            "x-rapidapi-key": "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
+        }
+    })
+    .then(response => {
+        console.log(response);
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data.body[0]);
+        var drinkName = data.body[0].name;
+        var drinkIngredients = data.body[0].ingredients;
+        console.log(data.body[0].ingredients);
+        
+        //Change drink name and creates sections like ingredients
+        $("#currentDrink").append("<h3>" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
+        $("#drinkIngredients").append("<h2>Ingredients</h2>");
+
+        //li elements for drinks
+        for(let i = 0; i < drinkIngredients.length; i++){
+            $("#drinkIngredients").append("<li>" + drinkIngredients[i] + "</li>")
+        }
+    });
+};
+
+//removes current content of recipe
+function removeCurrentRecipe() {
+    $("#dishName").remove();
+    $("#dishImage").remove();
+    $("#ingredients").remove();
+    $("#steps").remove();
+}
+
 $("#searchBtn").click(function () {
     searchByIngredient();
 })
@@ -115,3 +109,8 @@ $("#generateRandomRecipe").click(function (event) {
 })
 
 searchByIngredient();
+
+$("#generateRandomDrink").click(function(event){
+    randomDrink();
+})
+
