@@ -32,13 +32,14 @@ nav {
     background-color: black;
     font-size: 20px;
     font-family: 'Noto Serif JP', serif;
-    margin-top: -2.5%;
+    margin-top: 0%;
 }
 
 nav img {
-    width: 12%;
-    margin-bottom: -6%;
-    margin-left: 1%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0%;
+    margin-left: 0%;
 }
 
 li a{
@@ -56,11 +57,15 @@ li a:hover{
     font-family: 'Noto Serif JP', serif;
 }
 
+.jumbotron-fluid {
+    padding: inherit;
+}
+
 .jumbotron img {
     width: 100%;
     height: auto;
-    margin-bottom: -5%;
-    margin-top: -5%;
+    margin-bottom: 0%;
+    margin-top: 0%;
 }
 
 .jumbotron img {
