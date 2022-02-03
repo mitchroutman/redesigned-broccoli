@@ -1,6 +1,6 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
-spoonacularKey = "";
+spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
 cocktailsKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
@@ -66,7 +66,7 @@ function randomDrink() {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "cocktails3.p.rapidapi.com",
-            "x-rapidapi-key": "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
+            "x-rapidapi-key": ""
         }
     })
     .then(response => {
@@ -98,6 +98,12 @@ function removeCurrentRecipe() {
     $("#steps").remove();
 }
 
+//remove current drink
+function removeCurrentDrink() {
+    $("#drinkName").remove();
+    $("#drinkIngredients").remove();
+}
+
 $("#searchBtn").click(function () {
     searchByIngredient();
 })
@@ -113,6 +119,7 @@ $("#search-bar").keydown(function(){
 
 
 $("#generateRandomDrink").click(function(event){
+    removeCurrentDrink();
     randomDrink();
 })
 
