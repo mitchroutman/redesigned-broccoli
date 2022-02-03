@@ -1,24 +1,15 @@
 //afe8f8ce140548eaaabaa3febe07b051
-//0d6b19fe0c2b4f04a50900e6cfded5f0//Yujen
-
+//0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
 spoonacularKey = "";
-cocktailsKey = "";
-
-generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
-searchRecipe = "https://api.spoonacular.com/recipes/autocomplete?number=1&apiKey=" + spoonacularKey;
-
+cocktailsKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
-
-
-
-//jQuery Autocomplete
-
-//
 
 var searchButton = document.getElementById('search-button');
 
 function randomRecipe() {
+    generateRandomRecipeURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + spoonacularKey;
+
     fetch(generateRandomRecipeURL)
         .then(function (response) {
             return response.json();
@@ -27,41 +18,53 @@ function randomRecipe() {
             var dishName = data.recipes[0].title;                                                   //name of dish
             var ingredientList = data.recipes[0].extendedIngredients;                               //array ingredients
             var instructions = data.recipes[0].analyzedInstructions[0].steps;                       //array of ingredients
-            var image = data.recipes[0].image
+            var dishImage = data.recipes[0].image
 
             //changes header of dish name and steps
+<<<<<<< HEAD
             $("#picAndName").append("<h2 id=\"dishName\">" + dishName + "</h2><img id=\"dishImage\" src=\"" + image +"\">");
             $("#progress").append("</ul><ol id=\"steps\"></ol>");
+=======
+            $("#currentDish").append("<h2>" + dishName + "</h2 id=\"dishName\"><img id=\"dishImage\" src=\"" + dishImage + "\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+>>>>>>> 8a1c7eff5dd6c9d3cdbaf59a53a66fbdbcb9eb3b
             $("#ingredients").append("<h3>Ingredients</h3>");
             $("#steps").append("<h3>Steps</h3>");
 
             //make li element for ingredients
-            for(let i = 0; i < ingredientList.length; i++){
-                $("#ingredients").append("<li>" + ingredientList[i].name + "</li>")
-            }
+            for (let i = 0; i < ingredientList.length; i++) {$("#ingredients").append("<li>" + ingredientList[i].name + "</li>")}
 
             //make li elements for the steps
-            for(let j = 0; j < instructions.length; j++){
-                var currentStep = j + 1;
-                var instructionsString = instructions[j].step;
-                $("#steps").append("<li>"+ currentStep + ". " + instructionsString + "</li>")
+            for (var i = 0; i < instructions.length; i++) {
+                var currentStep = i + 1;
+                var instructionsString = instructions[i].step;
+                $("#steps").append("<li>" + currentStep + ". " + instructionsString + "</li>")
                 currentStep++;
             }
         })
 }
 
-function removeCurrentRecipe(){
-    $("#ingredients").remove();
-    $("#steps").remove();
+//autocomplete function for search bar
+function searchByIngredient() {
+    var userInput = $("#searchBar").val();
+
+    searchByIngredientURL = "https://api.spoonacular.com/recipes/autocomplete?query=" + userInput + "&numbers=5&apiKey=" + spoonacularKey;
+
+    fetch(searchByIngredientURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var searchData = [];
+            for(var i = 0; i < data.length; i++){
+                searchData[i] = data[i].title
+            }
+            console.log(searchData);
+            $("#searchBar").autocomplete({
+                source: searchData
+            })
+        })
 }
 
-$("#generateRandomRecipe").click(function(event){
-    removeCurrentRecipe();
-    randomRecipe();
-})
-
-
-// searchIngredientURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&numbers=5&apiKey=" + spoonacularKey
 
 // Search random Cocktails
 function randomDrink() {
@@ -93,11 +96,24 @@ function randomDrink() {
     });
 };
 
+//removes current content of recipe
+function removeCurrentRecipe() {
+    $("#dishName").remove();
+    $("#dishImage").remove();
+    $("#ingredients").remove();
+    $("#steps").remove();
+}
 
+$("#searchBtn").click(function () {
+    searchByIngredient();
+})
 
-// function removeCurrentDrink(){
-//     $("#drinkIngredients").remove();
-// }
+$("#generateRandomRecipe").click(function (event) {
+    removeCurrentRecipe();
+    randomRecipe();
+})
+
+searchByIngredient();
 
 $("#generateRandomDrink").click(function(event){
     randomDrink();
