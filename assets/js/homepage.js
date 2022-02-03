@@ -40,7 +40,7 @@ function randomRecipe() {
 
 //autocomplete function for search bar
 function searchByIngredient() {
-    var userInput = $("#searchBar").val();
+    var userInput = $("#search-bar").val();
 
     searchByIngredientURL = "https://api.spoonacular.com/recipes/autocomplete?query=" + userInput + "&numbers=5&apiKey=" + spoonacularKey;
 
@@ -53,8 +53,7 @@ function searchByIngredient() {
             for(var i = 0; i < data.length; i++){
                 searchData[i] = data[i].title
             }
-            console.log(searchData);
-            $("#searchBar").autocomplete({
+            $("#search-bar").autocomplete({
                 source: searchData
             })
         })
@@ -108,7 +107,10 @@ $("#generateRandomRecipe").click(function (event) {
     randomRecipe();
 })
 
-searchByIngredient();
+$("#search-bar").keydown(function(){
+    searchByIngredient();
+})
+
 
 $("#generateRandomDrink").click(function(event){
     randomDrink();

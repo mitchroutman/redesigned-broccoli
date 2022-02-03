@@ -24,8 +24,11 @@
             <li class="nav-item">
                 <a class="nav-link">Cart</a>
             </li>
-            <input type="text" class="nav-item" id="searchBar" placeholder="Anything">
-            <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
+            <form id="search-form">
+                <input type="text" class="nav-item" id="search-bar" placeholder="Anything">
+                <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
+            </form>
+
         </ul>
 
     </nav>
@@ -55,12 +58,14 @@
                     <article id="generateRandomDrink" class="card" style="width: 18rem;">
                         <img src="assets/images/drinks.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5><p class="card-link">Drinks</p></h5>
+                            <h5>
+                                <p class="card-link">Drinks</p>
+                            </h5>
                         </div>
                     </article>
                 </li>
                 </div>
-            </div>
+                </div>
         </section>
         <section id="currentDish">
             <h2 id="dishName"></h2>
