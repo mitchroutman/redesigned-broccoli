@@ -1,6 +1,6 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
-spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
+spoonacularKey = "";
 cocktailsKey = "";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
@@ -29,6 +29,7 @@ function randomRecipe() {
             dishImageImg.setAttribute("id", "dishImage")
             var ingredientsUl = document.createElement("ul")
             ingredientsUl.setAttribute("id", "ingredients")
+            ingredientsUl.setAttribute("class", "list-group")
             var stepsOl = document.createElement("ol")
             stepsOl.setAttribute("id", "steps")
             var currentDishId = document.querySelector("#currentDish")
@@ -52,7 +53,7 @@ function randomRecipe() {
                 var ingredientString = ingredientList[i].original
                 var ingredientLi = document.createElement("li")
 
-                ingredientsUl.appendChild(ingredientLi)
+                ingredientsUl.appendChild(ingredientLi).setAttribute("class", "list-group-item")
                 ingredientLi.textContent = ingredientString
                 ingredientString++;
 
@@ -71,7 +72,7 @@ function randomRecipe() {
 
                 stepsOl.appendChild(stepLi)
                 stepLi.textContent = currentStep
-                stepsOl.appendChild(instructionLi)
+                stepsOl.appendChild(instructionLi).setAttribute("class", "stepInstruction")
                 instructionLi.textContent = instructionsString
                 currentStep++;
             }
