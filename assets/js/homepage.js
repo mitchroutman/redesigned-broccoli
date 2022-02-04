@@ -1,6 +1,7 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
-spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
+spoonacularKey = "";
+spoonacularKey = "";
 cocktailsKey = "";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
