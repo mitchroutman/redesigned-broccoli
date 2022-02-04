@@ -9,6 +9,7 @@ body {
     position: relative;
     margin: 0%;
     padding: 0%;
+    background-color: #7a9539;
 }
 
 /*NAV BAR STUFF*/
@@ -71,6 +72,10 @@ li a:hover{
     font-family: 'Noto Serif JP', serif; ;
     margin-left: 7%;
     margin-right: 4%;
+}
+
+li.col {
+    align-items: center;
 }
 
 .col img {
