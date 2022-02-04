@@ -2,6 +2,7 @@
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
 //74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87
 spoonacularKey = "62e06ed2bdb843f98dcd0f5d825b6103";
+rapidapiKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
 
 var searchButton = document.getElementById('search-button');
 
@@ -42,7 +43,8 @@ function insertRecipe(data) {
     //changes header of dish name ingredients and steps
     $("#dish-name").text(dishName);
     $("#dish-image").attr("src", dishImage);
-    $("#current-dish").append("<ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+    $("#current-dish").append("<ol id=\"steps\"></ol>");
+    $("#pic-and-ing").append("<ul id=\"ingredients\"></ul>")
     $("#ingredients").append("<h3>Ingredients</h3>");
     $("#steps").append("<h3>Steps</h3>");
 
@@ -102,7 +104,7 @@ function randomDrink() {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "cocktails3.p.rapidapi.com",
-            "x-rapidapi-key": "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
+            "x-rapidapi-key": rapidapiKey
         }
     })
         .then(function (response) {
@@ -114,7 +116,7 @@ function randomDrink() {
 
             //Change drink name and creates sections like ingredients
             $("#drink-name").text(drinkName);
-            $("#currentDrink").append("<ul id=\"drink-ingredients\"></ul>");
+            $("#current-drink").append("<ul id=\"drink-ingredients\"></ul>");
             $("#drink-ingredients").append("<h3>Ingredients</h3>");
 
             //li elements for drinks
@@ -135,15 +137,18 @@ function removeCurrentDrink() {
     $("#drink-ingredients").remove();
 }
 
+//On the click of this article it will call these two functions
 $("#generateRandomRecipe").click(function (event) {
     removeCurrentRecipe();
     randomRecipe();
 })
 
+//Every keyboard input will call the search function
 $("#search-bar").keydown(function () {
     searchByIngredient();
 })
 
+//On the click of this article it will call these two functions
 $("#generateRandomDrink").click(function (event) {
     removeCurrentDrink();
     randomDrink();
