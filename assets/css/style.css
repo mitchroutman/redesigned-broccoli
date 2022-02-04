@@ -82,6 +82,10 @@ li a:hover{
     background-color: rgb(253, 235, 231);
 }
 /* --------- flex box on ing and photo -------YC*/
+
+main {
+    background-color: #7a9539;
+}
 #picAndName {
     display: flex;
     flex-direction: column;
@@ -96,6 +100,8 @@ li a:hover{
 }
 
 #ingredients {
+    margin: 3%;
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -104,6 +110,34 @@ li a:hover{
 #currentDish {
     display: flex;
     flex-direction: column;
+}
+
+#picAndName {
+    background-color: #dfcea4;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#steps {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    background-color: #464345;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: floralwhite;
+}
+
+.stepInstruction {
+    background-color: #7a7579;
+    padding: 5px;
+}
+
+.col {
+    margin: 30px;
+    padding: 15px;
 }
 
 /* autocomplete attributes */
