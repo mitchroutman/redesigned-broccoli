@@ -1,7 +1,6 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
-spoonacularKey = "";
-spoonacularKey = "";
+spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
 cocktailsKey = "";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
@@ -137,6 +136,27 @@ function searchByIngredient() {
                 $("#drinkIngredients").append("<h2>Ingredients</h2>");
             });
     };
+    // // Search random Cocktails
+    // function randomDrink() {
+    //     fetch("https://cocktails3.p.rapidapi.com/random", {
+    //         "method": "GET",
+    //         "headers": {
+    //             "x-rapidapi-host": "cocktails3.p.rapidapi.com",
+    //             "x-rapidapi-key": ""
+    //         }
+    //     })
+
+    //     $("#generateRandomRecipe").click(function (event) {
+    //         removeCurrentRecipe();
+    //         randomRecipe();
+    //     })
+
+    //         //li elements for drinks
+    //         for(let i = 0; i < drinkIngredients.length; i++){
+    //             $("#drinkIngredients").append("<li>" + drinkIngredients[i] + "</li>")
+    //         }
+    //     };
+    // };
 
     //removes current content of recipe
     function removeCurrentRecipe() {
@@ -159,6 +179,7 @@ function searchByIngredient() {
     $("#generateRandomRecipe").click(function (event) {
         removeCurrentRecipe();
         randomRecipe();
+        saveRecipe();
     })
 
     $("#search-bar").keydown(function () {
@@ -171,13 +192,15 @@ function searchByIngredient() {
         randomDrink();
     })
 
+
 //storage
-var selectedRecipe = { };
-
-// set the object into storage
-localStorage.setItem('selectedRecipe', JSON.stringify(selectedRecipe));
-
-// pull the object from storage
-var returnRecipe = localStorage.getItem('selectedRecipe');
-
-console.log('returnRecipe: ', JSON.parse(selectedRecipe));
+function saveRecipe() {
+    if (localStorage) {
+        var recipe = document.getElementById('currentDish');
+        localStorage.setItem(recipe.innerHTML);
+        console.log("Clicked button")
+    } else {
+        console.log("error");
+    }
+}
+window.localStorage.getItem('user');
