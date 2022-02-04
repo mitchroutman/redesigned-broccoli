@@ -73,6 +73,10 @@ li a:hover{
     margin-right: 4%;
 }
 
+li.col {
+    align-items: center;
+}
+
 .col img {
     cursor: pointer;
 }
