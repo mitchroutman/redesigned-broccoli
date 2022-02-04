@@ -4,6 +4,7 @@ spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
 cocktailsKey = "";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
+var recipe = document.getElementById('currentDish');
 
 var searchButton = document.getElementById('search-button');
 
@@ -33,6 +34,8 @@ function randomRecipe() {
             var stepsOl = document.createElement("ol")
             stepsOl.setAttribute("id", "steps")
             var currentDishId = document.querySelector("#currentDish")
+
+            saveRecipe(data.recipes[0]);
 
             // console.log(dishName)
             dishNameH2.textContent = dishName
@@ -179,7 +182,6 @@ function searchByIngredient() {
     $("#generateRandomRecipe").click(function (event) {
         removeCurrentRecipe();
         randomRecipe();
-        saveRecipe();
     })
 
     $("#search-bar").keydown(function () {
@@ -194,13 +196,83 @@ function searchByIngredient() {
 
 
 //storage
-function saveRecipe() {
-    if (localStorage) {
-        var recipe = document.getElementById('currentDish');
-        localStorage.setItem(recipe.innerHTML);
-        console.log("Clicked button")
-    } else {
-        console.log("error");
-    }
+
+function saveRecipe(info) {
+    var currentRecipeID = info.id;
+    console.log(currentRecipeID);
+    localStorage.setItem("savedRecipe", currentRecipeID)
 }
-window.localStorage.getItem('user');
+
+function findRecipe(){
+    var userInput = localStorage.getItem("savedRecipe")
+    var searchRecipeURL = "https://api.spoonacular.com/recipes/" + userInput + "/information?apiKey=" + spoonacularKey;
+    fetch(searchRecipeURL)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            var dishName = data.title;                                                   //name of dish
+            var ingredientList = data.extendedIngredients;                               //array ingredients
+            var instructions = data.analyzedInstructions[0].steps;                       //array of ingredients
+            var dishImage = data.image                                                   //array of images
+            var ingAndPicDiv = document.createElement("div")
+            ingAndPicDiv.setAttribute("id", "ingAndPic")
+            var picAndNameDiv = document.createElement("div")
+            picAndNameDiv.setAttribute("id", "picAndName")
+            var dishNameH2 = document.createElement("h2")
+            dishNameH2.setAttribute("id", "dishName")
+            var dishImageImg = document.createElement("img")
+            dishImageImg.setAttribute("id", "dishImage")
+            var ingredientsUl = document.createElement("ul")
+            ingredientsUl.setAttribute("id", "ingredients")
+            ingredientsUl.setAttribute("class", "list-group")
+            var stepsOl = document.createElement("ol")
+            stepsOl.setAttribute("id", "steps")
+            var currentDishId = document.querySelector("#currentDish")
+
+            dishNameH2.textContent = dishName
+            dishImageImg.src = dishImage
+            picAndNameDiv.append(dishNameH2, dishImageImg)
+
+
+            //changes header of dish name and steps
+            // $("#currentDish").append("<h2>" + dishName + "</h2 id=\"dishName\"><img id=\"dishImage\" src=\"" + dishImage + "\"><ul id=\"ingredients\"></ul><ol id=\"steps\"></ol>");
+            // $("#ingredients").append("<h3>Ingredients</h3>");
+            // $("#steps").append("<h3>Steps</h3>");
+
+            //make li element for ingredients
+            // console.log(ingredientList)
+
+            // ingredientlist
+            for (let i = 0; i < ingredientList.length; i++) {
+                var ingredientString = ingredientList[i].original
+                var ingredientLi = document.createElement("li")
+
+                ingredientsUl.appendChild(ingredientLi).setAttribute("class", "list-group-item")
+                ingredientLi.textContent = ingredientString
+                ingredientString++;
+
+            }
+            //adding name and ingredients to div
+            ingAndPicDiv.append(picAndNameDiv, ingredientsUl)
+
+            //make li elements for the steps
+            for (var i = 0; i < instructions.length; i++) {
+                var currentStep = i + 1;
+                // console.log(currentStep)
+                var instructionsString = instructions[i].step;
+                // console.log(instructionsString)
+                var stepLi = document.createElement("li")
+                var instructionLi = document.createElement("li")
+
+                stepsOl.appendChild(stepLi)
+                stepLi.textContent = currentStep
+                stepsOl.appendChild(instructionLi).setAttribute("class", "stepInstruction")
+                instructionLi.textContent = instructionsString
+                currentStep++;
+            }
+            currentDishId.appendChild(ingAndPicDiv)
+            currentDishId.appendChild(stepsOl)
+        })
+}
+findRecipe();
