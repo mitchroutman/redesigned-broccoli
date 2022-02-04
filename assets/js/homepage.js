@@ -1,8 +1,11 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
+<<<<<<< HEAD
 // 'x-rapidapi-host': 'cocktails3.p.rapidapi.com',
 // 'x-rapidapi-key': '02e9320111mshd38b16da556d3fdp1acc83jsncf06ed2a43e9'
-spoonacularKey = "0d6b19fe0c2b4f04a50900e6cfded5f0";
+spoonacularKey = "";
+
+>>>>>>> 6095daf1c2529e8a60f35beb934f67d2fd37d576
 cocktailsKey = "";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
@@ -120,7 +123,7 @@ function randomDrink() {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "cocktails3.p.rapidapi.com",
-            "x-rapidapi-key": "02e9320111mshd38b16da556d3fdp1acc83jsncf06ed2a43e9"
+            "x-rapidapi-key": ""
         }
     })
         .then(response => {
@@ -153,11 +156,11 @@ function removeCurrentRecipe() {
     $("#steps").remove();
 }
 
-//remove current drink
-function removeCurrentDrink() {
-    $("#drinkName").remove();
-    $("#drinkIngredients").remove();
-}
+    $("#generateRandomRecipe").click(function (event) {
+        removeCurrentRecipe();
+        randomRecipe();
+        saveRecipe();
+    })
 
 $("#searchBtn").click(function () {
     searchByIngredient();
@@ -178,13 +181,15 @@ $("#generateRandomDrink").click(function (event) {
     randomDrink();
 })
 
+
 //storage
-var selectedRecipe = {};
-
-// set the object into storage
-localStorage.setItem('selectedRecipe', JSON.stringify(selectedRecipe));
-
-// pull the object from storage
-var returnRecipe = localStorage.getItem('selectedRecipe');
-
-console.log('returnRecipe: ', JSON.parse(selectedRecipe));
+function saveRecipe() {
+    if (localStorage) {
+        var recipe = document.getElementById('currentDish');
+        localStorage.setItem(recipe.innerHTML);
+        console.log("Clicked button")
+    } else {
+        console.log("error");
+    }
+}
+window.localStorage.getItem('user');
