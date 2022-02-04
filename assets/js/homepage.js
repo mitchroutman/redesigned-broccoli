@@ -1,7 +1,8 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
-spoonacularKey = "";
-spoonacularKey = "";
+// 'x-rapidapi-host': 'cocktails3.p.rapidapi.com',
+// 'x-rapidapi-key': '02e9320111mshd38b16da556d3fdp1acc83jsncf06ed2a43e9'
+spoonacularKey = "0d6b19fe0c2b4f04a50900e6cfded5f0";
 cocktailsKey = "";
 searchDrink = "https://cocktails3.p.rapidapi.com/random" + cocktailsKey;
 
@@ -111,68 +112,74 @@ function searchByIngredient() {
                     })
                 })
         })
-    }
+}
 
-    // Search random Cocktails
-    function randomDrink() {
-        fetch("https://cocktails3.p.rapidapi.com/random", {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "cocktails3.p.rapidapi.com",
-                "x-rapidapi-key": ""
-            }
+// Search random Cocktails
+function randomDrink() {
+    fetch("https://cocktails3.p.rapidapi.com/random", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "cocktails3.p.rapidapi.com",
+            "x-rapidapi-key": "02e9320111mshd38b16da556d3fdp1acc83jsncf06ed2a43e9"
+        }
+    })
+        .then(response => {
+            console.log(response);
+            return response.json();
         })
-            .then(response => {
-                console.log(response);
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data.body[0]);
-                var drinkName = data.body[0].name;
-                var drinkIngredients = data.body[0].ingredients;
-                console.log(data.body[0].ingredients);
+        .then(function (data) {
+            console.log(data.body[0]);
+            var drinkName = data.body[0].name;
+            var drinkIngredients = data.body[0].ingredients;
+            console.log(data.body[0].ingredients);
 
-                //Change drink name and creates sections like ingredients
-                $("#currentDrink").append("<h3>" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
-                $("#drinkIngredients").append("<h2>Ingredients</h2>");
-            });
-    };
+            //Change drink name and creates sections like ingredients
+            $("#currentDrink").append("<h3 class='drinkName' >" + drinkName + "</h2> <ul id=\"drinkIngredients\"></ul>");
+            $("#drinkIngredients").append("<h2>Ingredients</h2>");
 
-    //removes current content of recipe
-    function removeCurrentRecipe() {
-        $("#dishName").remove();
-        $("#dishImage").remove();
-        $("#ingredients").remove();
-        $("#steps").remove();
-    }
+            //li elements for drinks
+            for (let i = 0; i < drinkIngredients.length; i++) {
+                $("#drinkIngredients").append("<li>" + drinkIngredients[i] + "</li>")
+            }
 
-    //remove current drink
-    function removeCurrentDrink() {
-        $("#drinkName").remove();
-        $("#drinkIngredients").remove();
-    }
+        });
+};
 
-    $("#searchBtn").click(function () {
-        searchByIngredient();
-    })
+//removes current content of recipe
+function removeCurrentRecipe() {
+    $("#dishName").remove();
+    $("#dishImage").remove();
+    $("#ingredients").remove();
+    $("#steps").remove();
+}
 
-    $("#generateRandomRecipe").click(function (event) {
-        removeCurrentRecipe();
-        randomRecipe();
-    })
+//remove current drink
+function removeCurrentDrink() {
+    $("#drinkName").remove();
+    $("#drinkIngredients").remove();
+}
 
-    $("#search-bar").keydown(function () {
-        searchByIngredient();
-    })
+$("#searchBtn").click(function () {
+    searchByIngredient();
+})
+
+$("#generateRandomRecipe").click(function (event) {
+    removeCurrentRecipe();
+    randomRecipe();
+})
+
+$("#search-bar").keydown(function () {
+    searchByIngredient();
+})
 
 
-    $("#generateRandomDrink").click(function (event) {
-        removeCurrentDrink();
-        randomDrink();
-    })
+$("#generateRandomDrink").click(function (event) {
+    removeCurrentDrink();
+    randomDrink();
+})
 
 //storage
-var selectedRecipe = { };
+var selectedRecipe = {};
 
 // set the object into storage
 localStorage.setItem('selectedRecipe', JSON.stringify(selectedRecipe));

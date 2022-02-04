@@ -99,8 +99,7 @@ main {
 #ingAndPic {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: baseline;
+    justify-content: center;
  
 }
 
@@ -145,6 +144,25 @@ main {
     padding: 15px;
 }
 
+#currentDrink {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+};
+
+.drinkName {
+    background-color: #ae390b;
+    color: floralwhite;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#drinkIngredients {
+    background-color: #464344;
+    color: floralwhite;
+    padding: 15px;
+    border-radius: 10px;
+}
 /* autocomplete attributes */
 .ui-menu{
     background: white;
