@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    margin: 0%;
+    padding: 0%;
+    background-color: #7a9539;
+}
+
+/*NAV BAR STUFF*/
+
+nav {
+    background-color: black;
+    font-size: 20px;
+    font-family: 'Noto Serif JP', serif;
+    margin-top: 0%;
+}
+
+nav img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0%;
+    margin-left: 0%;
+}
+
+li a{
+    color: floralwhite;
+    cursor: pointer;
+}
+
+li a:hover{
+    color: #952F19;
+}
+
+/*NAV BAR STUFF*/
+/*JUMBO STUFF*/
+.jumbotron {
+    font-family: 'Noto Serif JP', serif;
+}
+
+.jumbotron-fluid {
+    padding: inherit;
+}
+
+.jumbotron img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0%;
+    margin-top: 0%;
+}
+
+.jumbotron img {
+    position: relative;
+    text-align: center;
+}
+/*JUMBO STUFF*/
+
+/*CARD STUFF*/
+.card-link {
+    color: #000000;
+    font-family: 'Noto Serif JP', serif;
+    float: left;
+    margin-left: -15px;
+}
+
+#currentDish {
+    font-family: 'Noto Serif JP', serif; ;
+    margin-left: 7%;
+    margin-right: 4%;
+}
+
+li.col {
+    align-items: center;
+}
+
+.col img {
+    cursor: pointer;
+}
+/*-------------Tae's Css update section-----------------*/
+
+#search-bar {
+    background-color: rgb(253, 235, 231);
+}
+/* --------- flex box on ing and photo -------YC*/
+
+main {
+    background-color: #7a9539;
+}
+
+#current-dish {
+    display: block;
+}
+
+#pic-and-ing {
+    display: flex;
+    margin-top: 0%;
+}
+
+#ingredients {
+    margin: 3%;
+    margin-top: -1%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #464345;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: floralwhite;
+}
+
+.col {
+    margin: 30px;
+    padding: 15px;
+}
+
+#current-drink {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+};
+
+.drink-name {
+    background-color: #ae390b;
+    color: floralwhite;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#drink-ingredients {
+    background-color: #464344;
+    color: floralwhite;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* autocomplete attributes */
+.ui-menu{
+    background: white;
+}
+
+.ui-helper-hidden-accessible{
+    display: none;
+}
