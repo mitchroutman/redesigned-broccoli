@@ -1,8 +1,8 @@
 //afe8f8ce140548eaaabaa3febe07b051
 //0d6b19fe0c2b4f04a50900e6cfded5f0/Yujen
 //74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87
-spoonacularKey = "";
-rapidapiKey = ""
+spoonacularKey = "23d3f98f86ee4a9f96d79a08b3d29065";
+rapidapiKey = "74f2d339b2msh8cf0e09097065dep10d3f8jsne564c60a5f87"
 
 //goes to api to find random recipe
 function randomRecipe() {
